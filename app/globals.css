@@ -2,25 +2,158 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+  --primary: #19B1FF;
+  --primary-dark: #0898E0;
+  --card-bg: #ffffff;
+  --card-border: #f3f4f6;
+  --card-text: #111827;
+  --card-text-secondary: #6b7280;
+  --badge-blue-bg: #dbeafe;
+  --badge-blue-text: #1e40af;
+  --badge-purple-bg: #ede9fe;
+  --badge-purple-text: #6b21a8;
+  --badge-pink-bg: #fce7f3;
+  --badge-pink-text: #9d174d;
+  --badge-orange-bg: #ffedd5;
+  --badge-orange-text: #9a3412;
+  --badge-green-bg: #dcfce7;
+  --badge-green-text: #166534;
+  --badge-teal-bg: #ccfbf1;
+  --badge-teal-text: #115e59;
+  --line: #000;
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --primary: #4DC3FF;
+  --primary-dark: #19B1FF;
+  --card-bg: #1e293b;
+  --card-border: #1e293b;
+  --card-text: #ffffff;
+  --card-text-secondary: #94a3b8;
+  --badge-blue-bg: rgba(59, 130, 246, 0.2);
+  --badge-blue-text: #93c5fd;
+  --badge-purple-bg: rgba(139, 92, 246, 0.2);
+  --badge-purple-text: #c4b5fd;
+  --badge-pink-bg: rgba(236, 72, 153, 0.2);
+  --badge-pink-text: #f9a8d4;
+  --badge-orange-bg: rgba(249, 115, 22, 0.2);
+  --badge-orange-text: #fdba74;
+  --badge-green-bg: rgba(34, 197, 94, 0.2);
+  --badge-green-text: #86efac;
+  --badge-teal-bg: rgba(20, 184, 166, 0.2);
+  --badge-teal-text: #5eead4;
+  --line: #ffffff60;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-card-text: var(--card-text);
+  --color-card-text-secondary: var(--card-text-secondary);
+  --color-badge-blue-bg: var(--badge-blue-bg);
+  --color-badge-blue-text: var(--badge-blue-text);
+  --color-badge-purple-bg: var(--badge-purple-bg);
+  --color-badge-purple-text: var(--badge-purple-text);
+  --color-badge-pink-bg: var(--badge-pink-bg);
+  --color-badge-pink-text: var(--badge-pink-text);
+  --color-badge-orange-bg: var(--badge-orange-bg);
+  --color-badge-orange-text: var(--badge-orange-text);
+  --color-badge-green-bg: var(--badge-green-bg);
+  --color-badge-green-text: var(--badge-green-text);
+  --color-badge-teal-bg: var(--badge-teal-bg);
+  --color-badge-teal-text: var(--badge-teal-text);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-line: var(--line);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #19B1FF 0%, #06B6D4 50%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-gradient {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(25, 177, 255, 0.15), transparent);
+}
+
+.dark .hero-gradient {
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(77, 195, 255, 0.1), transparent);
+}
+
+::-webkit-scrollbar,
+*::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+html, body, * {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+code {
+  background: #f1f5f9;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.dark code {
+  background: #1e293b;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
 }
